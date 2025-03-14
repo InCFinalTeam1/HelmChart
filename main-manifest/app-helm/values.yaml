@@ -1,0 +1,17 @@
+replicaCount: 1
+image:
+  repository: [ECR Repository]
+  tag: [Iamge Tag]
+  pullPolicy: IfNotPresent
+serviceAccount:
+  create: true
+  name: main-service-account
+  annotations:
+    eks.amazonaws.com/role-arn: [IAM Role]
+service:
+  activeService: app-active
+  previewService: app-preview
+  type: ClusterIP
+  port: 8000
+containerPort: 8000
+configMapName: url-config
